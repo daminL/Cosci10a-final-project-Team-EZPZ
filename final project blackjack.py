@@ -230,7 +230,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         round2 = 12
 
     print("{} of {} and a {} of {}. \n"
-          "You're at: {}".format(cardk1["card"], cardk1["suit"], cardk2["card"], cardk3["suit"], totalround2))
+    "You're at: {}".format(cardk1["card"], cardk1['suit'], cardk2["card"], cardk2['suit'], round2))
     print("-" * 40)
     hit_stay = input("Hit or Stay? (Hit/Stay)")
     if hit_stay == "Hit":
@@ -322,9 +322,9 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         totalround6 = (cardk5["value"]) + (cardk6["value"]) + (cardk7["value"])
         if int(totalround6) > 21 and cardk5["card"] == "Ace":
             int(totalround6) - 10
-        if int(totalround6) > 21 and card6key["card"] == "Ace":
+        if int(totalround6) > 21 and cardk6["card"] == "Ace":
             int(totalround6) - 10
-        if int(totalround6) > 21 and card7key["card"] == "Ace":
+        if int(totalround6) > 21 and cardk7["card"] == "Ace":
             int(totalround6) - 10
         print("{} of {}, {} of {}, and {} of {}.\n"
               "Total: {}".format(cardk5["card"], cardk5["suit"], cardk6["card"], cardk6["suit"],
@@ -351,7 +351,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
             print("{} of {}, {} of {}, {} of {} and {} of {}.\n"
                   "Total: {}".format(cardk5["card"], cardk5["suit"], cardk6["card"], cardk6["suit"],
                                      cardk7["card"], cardk7["suit"], cardk8["card"], cardk8["suit"],
-                                     int(totalround7)))
+                                     totalround7))
             if totalround7 > 21:
                 print("You have bust. Good luck next time :(.")
             else:
@@ -376,10 +376,10 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
             del deck[k]
     totalround8 = (cardk9["value"]) + (cardk10["value"])
     # DOUBLE ACE CHECK
-    if toatalround8 == 22:
+    if totalround8 == 22:
         totalround8 = 12
     print("{} of {} and a {} of {}.\n"
-          "Total: {}".format(cardk9["card"], cardk9["suit"], cardk10["card"], cardk10["suit"], round8))
+          "Total: {}".format(cardk9["card"], cardk9["suit"], cardk10["card"], cardk10["suit"], totalround8))
 
     if totalround8 < 16:  # and another card if less than 16
         cardk11 = random.choice(deck)
@@ -388,16 +388,16 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                 del deck[k]
         totalround9 = (cardk9["value"]) + (cardk10["value"]) + (cardk11["value"])
 
-        if int(round9) > 21:
+        if int(totalround9) > 21:
             if cardk9["card"] == "Ace":
-                int(round9) - 10
+                int(totalround9) - 10
             if cardk10["card"] == "Ace":
-                int(round9) - 10
+                int(totalround9) - 10
             if cardk11["card"] == "Ace":
-                int(round9) - 10
+                int(totalround9) - 10
         print("{} of {}, {} of {}, and {} of {}.\n"
               "Total: {}".format(cardk9["card"], cardk9["suit"], cardk10["card"], cardk10["suit"],
-                                 cardk11["card"], cardk11["suit"], round9))
+                                 cardk11["card"], cardk11["suit"], totalround9))
 
         if totalround9 < 16:
             cardk12 = random.choice(deck)
@@ -414,7 +414,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                 if cardk11["card"] == "Ace":
                     int(totalround10) - 10
                 if cardk12["card"] == "Ace":
-                    int(round10) - 10
+                    int(totalround10) - 10
             print("{} of {}, {} of {}, {} of {}, and {} of {}.\n"
                   "Total: {}".format(cardk9["card"], cardk9["suit"], cardk10["card"], cardk10["suit"],
                                      cardk11["card"], cardk11["suit"], cardk12["card"], cardk12["suit"],
