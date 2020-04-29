@@ -240,11 +240,11 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                 del deck[k]
         totalround3 = (cardk1["value"]) + (cardk2["value"]) + (cardk3["value"])
         #ace can be 1 or 11 so need a check for that
-        if int(totalround3) > 21 and card1key["card"] == "Ace":
+        if int(totalround3) > 21 and cardk1["card"] == "Ace":
             int(totalround3) - 10
-        if int(totalround3) > 21 and card2key["card"] == "Ace":
+        if int(totalround3) > 21 and cardk2["card"] == "Ace":
             int(totalround3) - 10
-        if int(totalround3) > 21 and card3key["card"] == "Ace":
+        if int(totalround3) > 21 and cardk3["card"] == "Ace":
             int(totalround3) - 10
 
         print("{} of {}, {} of {}, and {} of {}.\n"
