@@ -1,3 +1,4 @@
+import random
 def checkyn(string):
     if string=='Yes' or string=="No":
         return True
@@ -254,7 +255,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     print("{} of {} and a {} of {}.\n"
           "Total: {}".format(cardk9["card"], cardk9["suit"], cardk10["card"], cardk10["suit"], totalround8))
 
-    if totalround8 < 16:  # and another card if less than 16
+    if totalround8 < 18:  # and another card if less than 16
         cardk11 = random.choice(deck)
         for k, v in deck.items():
             if cardk11 == k:
@@ -314,10 +315,10 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     print("----------RESULTS----------")
 
     # player1 results
-    if totalround2 or totalround3 or totalround4 > 21:  # BUST
+    if int(totalround2 or totalround3 or totalround4) >= 22:  # BUST
         print("The dealer wins against {}! You lost money. :(.".format(firstseat))
         player1balance -= wager
-    if totalround8 or totalround9 or totalround10 >= totalround4 or totalround3 or totalround2:
+    elif int(totalround8 or totalround9 or totalround10) >= int(totalround4 or totalround3 or totalround2):
         print("The dealer wins against {}! You lost your bet.".format(firstseat))
         player1balance -= wager
     else:
@@ -325,10 +326,10 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         player1balance += wager * 2
 
     # player2 results
-    if totalround5 or totalround6 or totalround7 > 21:
+    if int(totalround5 or totalround6 or totalround7) >= 22:
         print("The dealer wins against {}!  Sorry, you lost your bet.".format(secondseat))
         player2balance -= wager2
-    if totalround8 or totalround9 or totalround10 >= totalround7 or totalround6 or totalround5:
+    elif int(totalround8 or totalround9 or totalround10) >= int(totalround7 or totalround6 or totalround5):
         print("The dealer wins against {}! Sorry, you lost your bet.".format(secondseat))
         player2balance -= wager2
     else:
