@@ -1,3 +1,13 @@
+def checkyn(string):
+    if string=='Yes' or string=="No":
+        return True
+    else:
+        return False
+def checkhs(string):
+    if string=='Hit' or string=='Stay':
+        return True
+    else:
+        return False
 import random
 
 player1balance = 20
@@ -189,8 +199,13 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     print("Welcome {}! Now find a friend to play with!".format(player1))
     player2 = input("Hello!, What is your name?: ")
     print("Welcome {}! Let's play blackjack!".format(player1))
-
-    rules = input("Do you know how to play? (Yes/No): ")
+    check=True
+    while check:
+        rules = input("Do you know how to play? (Yes/No): ")
+        if checkyn(rules):
+            check=False
+        else:
+            check=True
     if rules == "No":
         print("-"*40)
         print("Okay! The rules are simple. You'll receive two cards in your hand, as will {}, and the dealer. \n"
@@ -232,7 +247,13 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     print("{} of {} and a {} of {}. \n"
     "You're at: {}".format(cardk1["card"], cardk1['suit'], cardk2["card"], cardk2['suit'], round2))
     print("-" * 40)
-    hit_stay = input("Hit or Stay? (Hit/Stay)")
+    check=True
+    while check:
+        hit_stay = input("Hit or Stay? (Hit/Stay)")
+        if checkhs(hit_stay):
+            check=False
+        else:
+            check=True
     if hit_stay == "Hit":
         cardk3 = random.choice(deck)
         for k, v in deck.items():
@@ -312,8 +333,13 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     print("{} of {} and a {} of {}. \n"
           "You're at: {}".format(cardk5["card"], cardk5["suit"], cardk6["card"], cardk6["suit"], totalround5))
     print("-" * 40)
-    hit_stay = input("Hit or Stay? (Hit/Stay)")
-
+    check=True
+    while check:
+        hit_stay = input("Hit or Stay? (Hit/Stay)")
+        if checkhs(hit_stay):
+            check=False
+        else:
+            check=True
     if hit_stay == "Hit":
         cardk7 = random.choice(deck)
         for k, v in deck.items():
@@ -332,8 +358,13 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         if totalround6 > 21:
             print("! Good luck next time :(.")
         if totalround6 < 21:
-            hit_stay = input("Hit or Stay? (Hit/Stay)")
-
+            check=True
+            while check:
+                hit_stay = input("Hit or Stay? (Hit/Stay)")
+                if checkhs(hit_stay):
+                    check=False
+                else:
+                    check=True
             if hit_stay == "Hit":
                 cardk8 = random.choice(deck)
                 for k, v in deck.items():
@@ -465,8 +496,14 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         player2balance += wager2 * 2
 
     print("-" * 40)
-    anothergame = input(
-        "Would you like to play another round? {}'s remaining balance is {} and {}'s remaning balance is {}. (Yes/No) ".format(
-            firstseat, player1balance, secondseat, player2balance))
+    check=True
+    while check:
+        anothergame = input(
+                "Would you like to play another round? {}'s remaining balance is {} and {}'s remaning balance is {}. (Yes/No) ".format(
+                        firstseat, player1balance, secondseat, player2balance))
+        if checkyn(anothergame):
+            check=False
+        else:
+            check=True
     if anothergame == "No":
         print("Thanks for playing! Stay safe out there!")
