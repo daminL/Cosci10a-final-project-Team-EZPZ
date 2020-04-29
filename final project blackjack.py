@@ -8,197 +8,39 @@ def checkhs(string):
         return True
     else:
         return False
-import random
 
 player1balance = 20
 player2balance = 20
 anothergame = "Yes"
+deck = {1: {"card": "Ace","suit": "Hearts","value": 11}, 2: {"card": "Two","suit": "Hearts","value": 2},3: {"card": "Three","suit": "Hearts","value": 3},4: {"card": "Four","suit": "Hearts","value": 4},5: {"card": "Five","suit": "Hearts","value": 5},6: {"card": "Six","suit": "Hearts","value": 6},7: {"card": "Seven","suit": "Hearts","value": 7},8: {"card": "Eight","suit": "Hearts","value": 8},9: {"card": "Nine","suit": "Hearts","value": 9},10: {"card": "Ten","suit": "Hearts","value": 10},11: {"card": "Jack","suit": "Hearts","value": 10},12: {"card": "Queen","suit": "Hearts","value": 10},13: {"card": "King","suit": "Hearts","value": 10},14: {"card": "Ace","suit": "Diamonds", "value": 11},            15: {"card": "Two",                 "suit": "Diamonds",                 "value": 2},            16: {"card": "Three",                 "suit": "Diamonds",                 "value": 3},            17: {"card": "Four",                 "suit": "Diamonds",                 "value": 4},            18: {"card": "Five",                 "suit": "Diamonds",                 "value": 5},            19: {"card": "Six",                 "suit": "Diamonds",                 "value": 6},            20: {"card": "Seven",                 "suit": "Diamonds",                 "value": 7},            21: {"card": "Eight",                 "suit": "Diamonds",                 "value": 8},            22: {"card": "Nine",                 "suit": "Diamonds",                 "value": 9},            23: {"card": "Ten",                 "suit": "Diamonds",                 "value": 10},            24: {"card": "Jack",                 "suit": "Diamonds",                 "value": 10},            25: {"card": "Queen",                 "suit": "Diamonds",                 "value": 10},            26: {"card": "King",                 "suit": "Diamonds",                 "value": 10},            27: {"card": "Ace",                 "suit": "Spades",                 "value": 11},            28: {"card": "Two",                 "suit": "Spades",                 "value": 2},            29: {"card": "Three",                 "suit": "Spades",                 "value": 3},            30: {"card": "Four",                 "suit": "Spades",                 "value": 4},            31: {"card": "Five",                 "suit": "Spades",                 "value": 5},            32: {"card": "Six",                 "suit": "Spades",                 "value": 6},            33: {"card": "Seven",                 "suit": "Spades",                 "value": 7},            34: {"card": "Eight",                 "suit": "Spades",                 "value": 8},            35: {"card": "Nine",                 "suit": "Spades",                 "value": 9},            36: {"card": "Ten",                 "suit": "Spades",                 "value": 10},            37: {"card": "Jack",                 "suit": "Spades",                 "value": 10},            38: {"card": "Queen",                 "suit": "Spades",                 "value": 10},            39: {"card": "King",                 "suit": "Spades",                 "value": 10},            40: {"card": "Ace",                 "suit": "Clubs",                 "value": 11},            41: {"card": "Two",                 "suit": "Clubs",                 "value": 2},            42: {"card": "Three",                 "suit": "Clubs",                 "value": 3},            43: {"card": "Four",                 "suit": "Clubs",                 "value": 4},            44: {"card": "Five",                 "suit": "Clubs",                 "value": 5},            45: {"card": "Six",                 "suit": "Clubs",                 "value": 6},            46: {"card": "Seven",                 "suit": "Clubs",                 "value": 7},            47: {"card": "Eight",                 "suit": "Clubs",                 "value": 8},            48: {"card": "Nine",                 "suit": "Clubs",                 "value": 9},            49: {"card": "Ten",                 "suit": "Clubs",                 "value": 10},            50: {"card": "Jack",                 "suit": "Clubs",                 "value": 10},            51: {"card": "Queen",                 "suit": "Clubs",                 "value": 10},            0: {"card": "King",                 "suit": "Clubs",                 "value": 10}}
+
+cardk1 = ''
+cardk2 = ''
+cardk3 = ''
+cardk4 = ''
+cardk5 = ''
+cardk6 = ''
+cardk7 = ''
+cardk8 = ''
+cardk9 = ''
+cardk10 = ''
+cardk11 = ''
+cardk12 = ''
+totalround2 = ''
+totalround3 = ''
+totalround4 = ''
+totalround5 = ''
+totalround6 = ''
+totalround7 = ''
+totalround8 = ''
+totalround9 = ''
+totalround10 = ''
+totalround11 = ''
+player1 = input("Hello!, What is your name?: ")
+print("Welcome {}! Now find a friend to play with!".format(player1))
+player2 = input("Hello!, What is your name?: ")
+print("Welcome {}! Let's play blackjack!".format(player1))
 while anothergame == "Yes" and (player1balance and player2balance > 0):
-
-    deck = {1: {"card": "Ace",
-                "suit": "Hearts",
-                "value": 11},
-            2: {"card": "Two",
-                "suit": "Hearts",
-                "value": 2},
-            3: {"card": "Three",
-                "suit": "Hearts",
-                "value": 3},
-            4: {"card": "Four",
-                "suit": "Hearts",
-                "value": 4},
-            5: {"card": "Five",
-                "suit": "Hearts",
-                "value": 5},
-            6: {"card": "Six",
-                "suit": "Hearts",
-                "value": 6},
-            7: {"card": "Seven",
-                "suit": "Hearts",
-                "value": 7},
-            8: {"card": "Eight",
-                "suit": "Hearts",
-                "value": 8},
-            9: {"card": "Nine",
-                "suit": "Hearts",
-                "value": 9},
-            10: {"card": "Ten",
-                 "suit": "Hearts",
-                 "value": 10},
-            11: {"card": "Jack",
-                 "suit": "Hearts",
-                 "value": 10},
-            12: {"card": "Queen",
-                 "suit": "Hearts",
-                 "value": 10},
-            13: {"card": "King",
-                 "suit": "Hearts",
-                 "value": 10},
-            14: {"card": "Ace",
-                 "suit": "Diamonds",
-                 "value": 11},
-            15: {"card": "Two",
-                 "suit": "Diamonds",
-                 "value": 2},
-            16: {"card": "Three",
-                 "suit": "Diamonds",
-                 "value": 3},
-            17: {"card": "Four",
-                 "suit": "Diamonds",
-                 "value": 4},
-            18: {"card": "Five",
-                 "suit": "Diamonds",
-                 "value": 5},
-            19: {"card": "Six",
-                 "suit": "Diamonds",
-                 "value": 6},
-            20: {"card": "Seven",
-                 "suit": "Diamonds",
-                 "value": 7},
-            21: {"card": "Eight",
-                 "suit": "Diamonds",
-                 "value": 8},
-            22: {"card": "Nine",
-                 "suit": "Diamonds",
-                 "value": 9},
-            23: {"card": "Ten",
-                 "suit": "Diamonds",
-                 "value": 10},
-            24: {"card": "Jack",
-                 "suit": "Diamonds",
-                 "value": 10},
-            25: {"card": "Queen",
-                 "suit": "Diamonds",
-                 "value": 10},
-            26: {"card": "King",
-                 "suit": "Diamonds",
-                 "value": 10},
-            27: {"card": "Ace",
-                 "suit": "Spades",
-                 "value": 11},
-            28: {"card": "Two",
-                 "suit": "Spades",
-                 "value": 2},
-            29: {"card": "Three",
-                 "suit": "Spades",
-                 "value": 3},
-            30: {"card": "Four",
-                 "suit": "Spades",
-                 "value": 4},
-            31: {"card": "Five",
-                 "suit": "Spades",
-                 "value": 5},
-            32: {"card": "Six",
-                 "suit": "Spades",
-                 "value": 6},
-            33: {"card": "Seven",
-                 "suit": "Spades",
-                 "value": 7},
-            34: {"card": "Eight",
-                 "suit": "Spades",
-                 "value": 8},
-            35: {"card": "Nine",
-                 "suit": "Spades",
-                 "value": 9},
-            36: {"card": "Ten",
-                 "suit": "Spades",
-                 "value": 10},
-            37: {"card": "Jack",
-                 "suit": "Spades",
-                 "value": 10},
-            38: {"card": "Queen",
-                 "suit": "Spades",
-                 "value": 10},
-            39: {"card": "King",
-                 "suit": "Spades",
-                 "value": 10},
-            40: {"card": "Ace",
-                 "suit": "Clubs",
-                 "value": 11},
-            41: {"card": "Two",
-                 "suit": "Clubs",
-                 "value": 2},
-            42: {"card": "Three",
-                 "suit": "Clubs",
-                 "value": 3},
-            43: {"card": "Four",
-                 "suit": "Clubs",
-                 "value": 4},
-            44: {"card": "Five",
-                 "suit": "Clubs",
-                 "value": 5},
-            45: {"card": "Six",
-                 "suit": "Clubs",
-                 "value": 6},
-            46: {"card": "Seven",
-                 "suit": "Clubs",
-                 "value": 7},
-            47: {"card": "Eight",
-                 "suit": "Clubs",
-                 "value": 8},
-            48: {"card": "Nine",
-                 "suit": "Clubs",
-                 "value": 9},
-            49: {"card": "Ten",
-                 "suit": "Clubs",
-                 "value": 10},
-            50: {"card": "Jack",
-                 "suit": "Clubs",
-                 "value": 10},
-            51: {"card": "Queen",
-                 "suit": "Clubs",
-                 "value": 10},
-            52: {"card": "King",
-                 "suit": "Clubs",
-                 "value": 10}}
-
-    cardk1 = ''
-    cardk2 = ''
-    cardk3 = ''
-    cardk4 = ''
-    cardk5 = ''
-    cardk6 = ''
-    cardk7 = ''
-    cardk8 = ''
-    cardk9 = ''
-    cardk10 = ''
-    cardk11 = ''
-    cardk12 = ''
-    totalround2 = ''
-    totalround3 = ''
-    totalround4 = ''
-    totalround5 = ''
-    totalround6 = ''
-    totalround7 = ''
-    totalround8 = ''
-    totalround9 = ''
-    totalround10 = ''
-    totalround11 = ''
-
-    player1 = input("Hello!, What is your name?: ")
-    print("Welcome {}! Now find a friend to play with!".format(player1))
-    player2 = input("Hello!, What is your name?: ")
-    print("Welcome {}! Let's play blackjack!".format(player1))
     check=True
     while check:
         rules = input("Do you know how to play? (Yes/No): ")
@@ -239,13 +81,13 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     for k, v in deck.items():
         if cardk2 == k:
             del deck[k]
-    round2 = (cardk1["value"]) + (cardk2["value"])
+    totalround2 = (cardk1["value"]) + (cardk2["value"])
     # Ace needs to be checked
-    if round2 == 22:
-        round2 = 12
+    if totalround2 == 22:
+        totalround2 = 12
 
     print("{} of {} and a {} of {}. \n"
-    "You're at: {}".format(cardk1["card"], cardk1['suit'], cardk2["card"], cardk2['suit'], round2))
+    "You're at: {}".format(cardk1["card"], cardk1['suit'], cardk2["card"], cardk2['suit'], totalround2))
     print("-" * 40)
     check=True
     while check:
@@ -261,12 +103,12 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                 del deck[k]
         totalround3 = (cardk1["value"]) + (cardk2["value"]) + (cardk3["value"])
         #ace can be 1 or 11 so need a check for that
-        if int(totalround3) > 21 and cardk1["card"] == "Ace":
-            int(totalround3) - 10
-        if int(totalround3) > 21 and cardk2["card"] == "Ace":
-            int(totalround3) - 10
-        if int(totalround3) > 21 and cardk3["card"] == "Ace":
-            int(totalround3) - 10
+        if totalround3 > 21 and cardk1["card"] == "Ace":
+            totalround3 - 10
+        if totalround3 > 21 and cardk2["card"] == "Ace":
+            totalround3 - 10
+        if totalround3 > 21 and cardk3["card"] == "Ace":
+            totalround3 - 10
 
         print("{} of {}, {} of {}, and {} of {}.\n"
               "Total: {}".format(cardk1["card"], cardk1["suit"], cardk2["card"], cardk2["suit"],
@@ -280,16 +122,16 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                 for k, v in deck.items():
                     if cardk4 == k:
                         del deck[k]
-                round4 = (cardk1["value"]) + (cardk2["value"]) + (cardk3["value"]) + (cardk4["value"])
+                totalround4 = (cardk1["value"]) + (cardk2["value"]) + (cardk3["value"]) + (cardk4["value"])
                 # Over 21 because of a 11 Ace? Let's make that ace into a 1 and update the total.
-                if int(totalround4) > 21 and cardk1["card"] == "Ace":
-                    int(totalround4) - 10
-                if int(totalround4) > 21 and cardk2["card"] == "Ace":
-                    int(totalround4) - 10
-                if int(totalround4) > 21 and cardk3["card"] == "Ace":
-                    int(totalround4) - 10
-                if int(totalround4) > 21 and cardk4["card"] == "Ace":
-                    int(totalround4) - 10
+                if totalround4 > 21 and cardk1["card"] == "Ace":
+                    totalround4 - 10
+                if totalround4 > 21 and cardk2["card"] == "Ace":
+                    totalround4 - 10
+                if totalround4 > 21 and cardk3["card"] == "Ace":
+                    totalround4 - 10
+                if totalround4 > 21 and cardk4["card"] == "Ace":
+                    totalround4 - 10
                 print("{} of {}, {} of {}, {} of {} and {} of {}.\n"
                       "Total: {}".format(cardk1["card"], cardk1["suit"], cardk2["card"], cardk2["suit"],
                                          cardk3["card"], cardk3["suit"], cardk4["card"], cardk4["suit"],
@@ -346,12 +188,12 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
             if cardk7 == k:
                 del deck[k]
         totalround6 = (cardk5["value"]) + (cardk6["value"]) + (cardk7["value"])
-        if int(totalround6) > 21 and cardk5["card"] == "Ace":
-            int(totalround6) - 10
-        if int(totalround6) > 21 and cardk6["card"] == "Ace":
-            int(totalround6) - 10
-        if int(totalround6) > 21 and cardk7["card"] == "Ace":
-            int(totalround6) - 10
+        if totalround6 > 21 and cardk5["card"] == "Ace":
+            totalround6 - 10
+        if totalround6 > 21 and cardk6["card"] == "Ace":
+            totalround6 - 10
+        if totalround6 > 21 and cardk7["card"] == "Ace":
+            totalround6 - 10
         print("{} of {}, {} of {}, and {} of {}.\n"
               "Total: {}".format(cardk5["card"], cardk5["suit"], cardk6["card"], cardk6["suit"],
                                  cardk7["card"], cardk7["suit"], totalround6))
@@ -371,14 +213,14 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                     if cardk8 == k:
                         del deck[k]
                 totalround7 = (cardk5["value"]) + (cardk6["value"]) + (cardk7["value"]) + (cardk8["value"])
-                if int(totalround7) > 21 and cardk5["card"] == "Ace":
-                    int(totalround7) - 10
-                if int(totalround7) > 21 and cardk6["card"] == "Ace":
-                    int(totalround7) - 10
-                if int(totalround7) > 21 and cardk7["card"] == "Ace":
-                    int(totalround7) - 10
-                if int(totalround7) > 21 and cardk8["card"] == "Ace":
-                    int(totalround7) - 10
+                if totalround7 > 21 and cardk5["card"] == "Ace":
+                    totalround7 - 10
+                if totalround7 > 21 and cardk6["card"] == "Ace":
+                    totalround7 - 10
+                if totalround7 > 21 and cardk7["card"] == "Ace":
+                    totalround7 - 10
+                if totalround7 > 21 and cardk8["card"] == "Ace":
+                    totalround7 - 10
             print("{} of {}, {} of {}, {} of {} and {} of {}.\n"
                   "Total: {}".format(cardk5["card"], cardk5["suit"], cardk6["card"], cardk6["suit"],
                                      cardk7["card"], cardk7["suit"], cardk8["card"], cardk8["suit"],
@@ -419,13 +261,13 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                 del deck[k]
         totalround9 = (cardk9["value"]) + (cardk10["value"]) + (cardk11["value"])
 
-        if int(totalround9) > 21:
+        if totalround9 > 21:
             if cardk9["card"] == "Ace":
-                int(totalround9) - 10
+                totalround9 - 10
             if cardk10["card"] == "Ace":
-                int(totalround9) - 10
+                totalround9 - 10
             if cardk11["card"] == "Ace":
-                int(totalround9) - 10
+                totalround9 - 10
         print("{} of {}, {} of {}, and {} of {}.\n"
               "Total: {}".format(cardk9["card"], cardk9["suit"], cardk10["card"], cardk10["suit"],
                                  cardk11["card"], cardk11["suit"], totalround9))
@@ -437,15 +279,15 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                     del deck[k]
             totalround10 = (cardk9["value"]) + (cardk10["value"]) + (cardk11["value"] + (cardk12["value"]))
 
-            if int(totalround10) > 21:
+            if totalround10 > 21:
                 if cardk9["card"] == "Ace":
-                    int(totalround10) - 10
+                    totalround10 - 10
                 if cardk10["card"] == "Ace":
-                    int(totalround10) - 10
+                    totalround10 - 10
                 if cardk11["card"] == "Ace":
-                    int(totalround10) - 10
+                    totalround10 - 10
                 if cardk12["card"] == "Ace":
-                    int(totalround10) - 10
+                    totalround10 - 10
             print("{} of {}, {} of {}, {} of {}, and {} of {}.\n"
                   "Total: {}".format(cardk9["card"], cardk9["suit"], cardk10["card"], cardk10["suit"],
                                      cardk11["card"], cardk11["suit"], cardk12["card"], cardk12["suit"],
@@ -472,11 +314,10 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     print("----------RESULTS----------")
 
     # player1 results
-    if int(totalround2 or totalround3 or totalround4) > 21:  # BUST
+    if totalround2 or totalround3 or totalround4 > 21:  # BUST
         print("The dealer wins against {}! You lost money. :(.".format(firstseat))
         player1balance -= wager
-    if int(totalround8 or totalround9 or totalround10) >= int(
-            totalround4 or totalround3 or totalround2):
+    if totalround8 or totalround9 or totalround10 >= totalround4 or totalround3 or totalround2:
         print("The dealer wins against {}! You lost your bet.".format(firstseat))
         player1balance -= wager
     else:
@@ -484,11 +325,10 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         player1balance += wager * 2
 
     # player2 results
-    if int(totalround5 or totalround6 or totalround7) > 21:
+    if totalround5 or totalround6 or totalround7 > 21:
         print("The dealer wins against {}!  Sorry, you lost your bet.".format(secondseat))
         player2balance -= wager2
-    if int(totalround8 or totalround9 or totalround10) >= int(
-            totalround7 or totalround6 or totalround5):
+    if totalround8 or totalround9 or totalround10 >= totalround7 or totalround6 or totalround5:
         print("The dealer wins against {}! Sorry, you lost your bet.".format(secondseat))
         player2balance -= wager2
     else:
