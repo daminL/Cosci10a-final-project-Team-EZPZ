@@ -1,6 +1,6 @@
 import random
 def checkyn(string):
-    if string=='Yes' or string=="No":
+    if string=='Yes' or "yes" or "No" or "no":
         return True
     else:
         return False
@@ -9,53 +9,31 @@ def checkhs(string):
         return True
     else:
         return False
-
+def check510(integer):
+    if integer=="5" or integer=="10":
+        return False
+    return True
 player1balance = 20
 player2balance = 20
 anothergame = "Yes"
-deck = {1: {"card": "Ace","suit": "Hearts","value": 11}, 2: {"card": "Two","suit": "Hearts","value": 2},3: {"card": "Three","suit": "Hearts","value": 3},4: {"card": "Four","suit": "Hearts","value": 4},5: {"card": "Five","suit": "Hearts","value": 5},6: {"card": "Six","suit": "Hearts","value": 6},7: {"card": "Seven","suit": "Hearts","value": 7},8: {"card": "Eight","suit": "Hearts","value": 8},9: {"card": "Nine","suit": "Hearts","value": 9},10: {"card": "Ten","suit": "Hearts","value": 10},11: {"card": "Jack","suit": "Hearts","value": 10},12: {"card": "Queen","suit": "Hearts","value": 10},13: {"card": "King","suit": "Hearts","value": 10},14: {"card": "Ace","suit": "Diamonds", "value": 11},            15: {"card": "Two",                 "suit": "Diamonds",                 "value": 2},            16: {"card": "Three",                 "suit": "Diamonds",                 "value": 3},            17: {"card": "Four",                 "suit": "Diamonds",                 "value": 4},            18: {"card": "Five",                 "suit": "Diamonds",                 "value": 5},            19: {"card": "Six",                 "suit": "Diamonds",                 "value": 6},            20: {"card": "Seven",                 "suit": "Diamonds",                 "value": 7},            21: {"card": "Eight",                 "suit": "Diamonds",                 "value": 8},            22: {"card": "Nine",                 "suit": "Diamonds",                 "value": 9},            23: {"card": "Ten",                 "suit": "Diamonds",                 "value": 10},            24: {"card": "Jack",                 "suit": "Diamonds",                 "value": 10},            25: {"card": "Queen",                 "suit": "Diamonds",                 "value": 10},            26: {"card": "King",                 "suit": "Diamonds",                 "value": 10},            27: {"card": "Ace",                 "suit": "Spades",                 "value": 11},            28: {"card": "Two",                 "suit": "Spades",                 "value": 2},            29: {"card": "Three",                 "suit": "Spades",                 "value": 3},            30: {"card": "Four",                 "suit": "Spades",                 "value": 4},            31: {"card": "Five",                 "suit": "Spades",                 "value": 5},            32: {"card": "Six",                 "suit": "Spades",                 "value": 6},            33: {"card": "Seven",                 "suit": "Spades",                 "value": 7},            34: {"card": "Eight",                 "suit": "Spades",                 "value": 8},            35: {"card": "Nine",                 "suit": "Spades",                 "value": 9},            36: {"card": "Ten",                 "suit": "Spades",                 "value": 10},            37: {"card": "Jack",                 "suit": "Spades",                 "value": 10},            38: {"card": "Queen",                 "suit": "Spades",                 "value": 10},            39: {"card": "King",                 "suit": "Spades",                 "value": 10},            40: {"card": "Ace",                 "suit": "Clubs",                 "value": 11},            41: {"card": "Two",                 "suit": "Clubs",                 "value": 2},            42: {"card": "Three",                 "suit": "Clubs",                 "value": 3},            43: {"card": "Four",                 "suit": "Clubs",                 "value": 4},            44: {"card": "Five",                 "suit": "Clubs",                 "value": 5},            45: {"card": "Six",                 "suit": "Clubs",                 "value": 6},            46: {"card": "Seven",                 "suit": "Clubs",                 "value": 7},            47: {"card": "Eight",                 "suit": "Clubs",                 "value": 8},            48: {"card": "Nine",                 "suit": "Clubs",                 "value": 9},            49: {"card": "Ten",                 "suit": "Clubs",                 "value": 10},            50: {"card": "Jack",                 "suit": "Clubs",                 "value": 10},            51: {"card": "Queen",                 "suit": "Clubs",                 "value": 10},            0: {"card": "King",                 "suit": "Clubs",                 "value": 10}}
-
-cardk1 = ''
-cardk2 = ''
-cardk3 = ''
-cardk4 = ''
-cardk5 = ''
-cardk6 = ''
-cardk7 = ''
-cardk8 = ''
-cardk9 = ''
-cardk10 = ''
-cardk11 = ''
-cardk12 = ''
-totalround2 = ''
-totalround3 = ''
-totalround4 = ''
-totalround5 = ''
-totalround6 = ''
-totalround7 = ''
-totalround8 = ''
-totalround9 = ''
-totalround10 = ''
-totalround11 = ''
 player1 = input("Hello!, What is your name?: ")
 print("Welcome {}! Now find a friend to play with!".format(player1))
 player2 = input("Hello!, What is your name?: ")
-print("Welcome {}! Let's play blackjack!".format(player1))
-while anothergame == "Yes" and (player1balance and player2balance > 0):
-    check=True
-    while check:
-        rules = input("Do you know how to play? (Yes/No): ")
-        if checkyn(rules):
-            check=False
-        else:
-            check=True
-    if rules == "No":
+print("Welcome {}! Let's play blackjack!".format(player2))
+check=True
+while check:
+    rules = input("Do you know how to play? (Yes/No): ")
+    if checkyn(rules):
+        check=False
+    else:
+        check=True
+    if rules == "No" or rules=="no":
         print("-"*40)
         print("Okay! The rules are simple. You'll receive two cards in your hand, as will {}, and the dealer. \n"
-              "Your goal is to beat the dealer by getting closer to 21 or gettting 21 which is a blackjack.  \n"
-              "Cards 2 - 10 counts as it's own number nd the face cards jacks, queens, and kings counts as 10 each, and aces can count\n"
-              " as either 1 or 11. Each player can draw up to four cards at this table. House wins on a tie.".format(
-            player1))
+              "Your goal is to beat the dealer by getting as close to 21 as possible without going over it.  \n"
+              "Cards 2 - 10 counts as it's own number and the face cards jacks, queens, and kings counts as 10 each, and aces can count\n"
+              " as either 1 or 11. A tie is a push, Getting a Blackjack a Ten or other facecard and an Ace earns you twice your bet\n"
+              "The dealer must hit on any number below 17 and stick to all numbers greater than or equal to it".format(player2))
         print("-" * 40)
         print("Let's begin blackjack!")
         print("-" * 40)
@@ -68,12 +46,45 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         secondseat = player2
     else:
         secondseat = player1
-
-    # player1's turn
-    wager = int(
-        input("Would you like to bet 5 or 10 dollars? Your balance is {} dollars. (5/10): ".format(player1balance)))
+while anothergame == "Yes" and (player1balance and player2balance > 0):
+    deck = {1: {"card": "Ace","suit": "Hearts","value": 11}, 2: {"card": "Two","suit": "Hearts","value": 2},3: {"card": "Three","suit": "Hearts","value": 3},4: {"card": "Four","suit": "Hearts","value": 4},5: {"card": "Five","suit": "Hearts","value": 5},6: {"card": "Six","suit": "Hearts","value": 6},7: {"card": "Seven","suit": "Hearts","value": 7},8: {"card": "Eight","suit": "Hearts","value": 8},9: {"card": "Nine","suit": "Hearts","value": 9},10: {"card": "Ten","suit": "Hearts","value": 10},11: {"card": "Jack","suit": "Hearts","value": 10},12: {"card": "Queen","suit": "Hearts","value": 10},13: {"card": "King","suit": "Hearts","value": 10},14: {"card": "Ace","suit": "Diamonds", "value": 11},            15: {"card": "Two",                 "suit": "Diamonds",                 "value": 2},            16: {"card": "Three",                 "suit": "Diamonds",                 "value": 3},            17: {"card": "Four",                 "suit": "Diamonds",                 "value": 4},            18: {"card": "Five",                 "suit": "Diamonds",                 "value": 5},            19: {"card": "Six",                 "suit": "Diamonds",                 "value": 6},            20: {"card": "Seven",                 "suit": "Diamonds",                 "value": 7},            21: {"card": "Eight",                 "suit": "Diamonds",                 "value": 8},            22: {"card": "Nine",                 "suit": "Diamonds",                 "value": 9},            23: {"card": "Ten",                 "suit": "Diamonds",                 "value": 10},            24: {"card": "Jack",                 "suit": "Diamonds",                 "value": 10},            25: {"card": "Queen",                 "suit": "Diamonds",                 "value": 10},            26: {"card": "King",                 "suit": "Diamonds",                 "value": 10},            27: {"card": "Ace",                 "suit": "Spades",                 "value": 11},            28: {"card": "Two",                 "suit": "Spades",                 "value": 2},            29: {"card": "Three",                 "suit": "Spades",                 "value": 3},            30: {"card": "Four",                 "suit": "Spades",                 "value": 4},            31: {"card": "Five",                 "suit": "Spades",                 "value": 5},            32: {"card": "Six",                 "suit": "Spades",                 "value": 6},            33: {"card": "Seven",                 "suit": "Spades",                 "value": 7},            34: {"card": "Eight",                 "suit": "Spades",                 "value": 8},            35: {"card": "Nine",                 "suit": "Spades",                 "value": 9},            36: {"card": "Ten",                 "suit": "Spades",                 "value": 10},            37: {"card": "Jack",                 "suit": "Spades",                 "value": 10},            38: {"card": "Queen",                 "suit": "Spades",                 "value": 10},            39: {"card": "King",                 "suit": "Spades",                 "value": 10},            40: {"card": "Ace",                 "suit": "Clubs",                 "value": 11},            41: {"card": "Two",                 "suit": "Clubs",                 "value": 2},            42: {"card": "Three",                 "suit": "Clubs",                 "value": 3},            43: {"card": "Four",                 "suit": "Clubs",                 "value": 4},            44: {"card": "Five",                 "suit": "Clubs",                 "value": 5},            45: {"card": "Six",                 "suit": "Clubs",                 "value": 6},            46: {"card": "Seven",                 "suit": "Clubs",                 "value": 7},            47: {"card": "Eight",                 "suit": "Clubs",                 "value": 8},            48: {"card": "Nine",                 "suit": "Clubs",                 "value": 9},            49: {"card": "Ten",                 "suit": "Clubs",                 "value": 10},            50: {"card": "Jack",                 "suit": "Clubs",                 "value": 10},            51: {"card": "Queen",                 "suit": "Clubs",                 "value": 10},            0: {"card": "King",                 "suit": "Clubs",                 "value": 10}}
+    "wager"
+    stay=0
+    hand=[]
+    hand1=[]
+    hand2=[]
+    hand22=[]
+    dhand=[]
+    handsize1=1
+    handsize2=1
+    player1blackjack=0
+    player1blackjack1=0
+    player2blackjack=0
+    player2blackjack2=0
+    dealerblackjack=0
+    bust=0
+    bust1=0
+    bust2=0
+    bust22=0
+    dbust=0
+    doubledown=0
+    check=True
+    handtotal=0
+    handtotal1=0
+    handtotal2=0
+    handtotal22=0
+    dhandtotal=0
+    while check:
+        wager =input(firstseat+" Would you like to bet 5 or 10 dollars? Your balance is {} dollars. (5/10): ".format(player1balance))
+        wager2 = input(secondseat+" Would you like to bet 5 or 10 dollars? Your balance is {} dollars. (5/10): ".format(player2balance))
+        if check510(wager) or check510(wager2):
+            check=True
+        else:
+            check=False
     print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n"
-          "Here are your two cards: ".format(firstseat, wager, player1balance - wager))
+          .format(firstseat, wager, player1balance - int(wager)))
+    print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n"
+          .format(secondseat, wager2, player2balance - int(wager2)))
     cardk1 = random.choice(deck)
     for k, v in deck.items():
         if cardk1 == k:
@@ -82,83 +93,15 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     for k, v in deck.items():
         if cardk2 == k:
             del deck[k]
-    totalround2 = (cardk1["value"]) + (cardk2["value"])
-    # Ace needs to be checked
-    if totalround2 == 22:
-        totalround2 = 12
-
-    print("{} of {} and a {} of {}. \n"
-    "You're at: {}".format(cardk1["card"], cardk1['suit'], cardk2["card"], cardk2['suit'], totalround2))
-    print("-" * 40)
-    check=True
-    while check:
-        hit_stay = input("Hit or Stay? (Hit/Stay)")
-        if checkhs(hit_stay):
-            check=False
-        else:
-            check=True
-    if hit_stay == "Hit":
-        cardk3 = random.choice(deck)
-        for k, v in deck.items():
-            if cardk3 == k:
-                del deck[k]
-        totalround3 = (cardk1["value"]) + (cardk2["value"]) + (cardk3["value"])
-        #ace can be 1 or 11 so need a check for that
-        if totalround3 > 21 and cardk1["card"] == "Ace":
-            totalround3 - 10
-        if totalround3 > 21 and cardk2["card"] == "Ace":
-            totalround3 - 10
-        if totalround3 > 21 and cardk3["card"] == "Ace":
-            totalround3 - 10
-
-        print("{} of {}, {} of {}, and {} of {}.\n"
-              "Total: {}".format(cardk1["card"], cardk1["suit"], cardk2["card"], cardk2["suit"],
-                                 cardk3["card"], cardk3["suit"], totalround3))
-        if totalround3 > 21:
-            print("You have busted. Good luck next time :(.")
-        if totalround3 < 21:
-            hit_stay = input("Hit or Stay? (Hit/Stay)")
-            if hit_stay == "Hit":
-                cardk4 = random.choice(deck)
-                for k, v in deck.items():
-                    if cardk4 == k:
-                        del deck[k]
-                totalround4 = (cardk1["value"]) + (cardk2["value"]) + (cardk3["value"]) + (cardk4["value"])
-                # Over 21 because of a 11 Ace? Let's make that ace into a 1 and update the total.
-                if totalround4 > 21 and cardk1["card"] == "Ace":
-                    totalround4 - 10
-                if totalround4 > 21 and cardk2["card"] == "Ace":
-                    totalround4 - 10
-                if totalround4 > 21 and cardk3["card"] == "Ace":
-                    totalround4 - 10
-                if totalround4 > 21 and cardk4["card"] == "Ace":
-                    totalround4 - 10
-                print("{} of {}, {} of {}, {} of {} and {} of {}.\n"
-                      "Total: {}".format(cardk1["card"], cardk1["suit"], cardk2["card"], cardk2["suit"],
-                                         cardk3["card"], cardk3["suit"], cardk4["card"], cardk4["suit"],
-                                         totalround4))
-                if totalround4 > 21:
-                    print("You have busted. May luck be with you next time :(.")
-            else:
-                print("-" * 40)
-                print("It is now {}'s turn.\n"
-                      "Good luck {}! ".format(secondseat, secondseat))
-                print("-" * 40)
-        else:
-            print("It is now {}'s turn.\n"
-                  "Good luck {}! ".format(secondseat, secondseat))
-            print("-" * 40)
-    else:
-        print("It is now {}'s turn.\n"
-              "Good luck {}! ".format(secondseat, secondseat))
-        print("-" * 40)
-
-    # PLAYER2 TURN
-    wager2 = int(input(
-        "Would you like to bet 5 or 10 dollars, {}? Your balance is {} dollars. (5/10): ".format(secondseat,
-                                                                                                player2balance)))
-    print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining balance.\n"
-          "Here are your two cards: ".format(secondseat, wager2, player2balance - wager2))
+    cardk3 = random.choice(deck)
+    for k, v in deck.items():
+        if cardk3 == k:
+            del deck[k]
+    dhand.append(cardk3)
+    cardk4 = random.choice(deck)
+    for k, v in deck.items():
+        if cardk4 == k:
+            del deck[k]
     cardk5 = random.choice(deck)
     for k, v in deck.items():
         if cardk5 == k:
@@ -167,176 +110,537 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     for k, v in deck.items():
         if cardk6 == k:
             del deck[k]
-
-    totalround5 = (cardk5["value"]) + (cardk6["value"])
-    # Double Ace Check
-    if totalround5 == 22:
-        totalround5 = 12
-
-    print("{} of {} and a {} of {}. \n"
-          "You're at: {}".format(cardk5["card"], cardk5["suit"], cardk6["card"], cardk6["suit"], totalround5))
-    print("-" * 40)
-    check=True
+    dhand.append(cardk6)
+    doubledown="no"
+    print("The dealer is showing a "+dhand[1]['card'] +" of " +dhand[1]['suit'])
+    print(secondseat+" is showing a "+cardk2['card'] +" of " +cardk2['suit']+" and a "+cardk5['card'] +" of " +cardk5['suit'])
+    if cardk1['card']==cardk4['card']:
+        check=True
+        print("Your cards are the " +cardk1['card'] +" of " +cardk1['suit']+" and the " +cardk4['card'] +" of " +cardk4['suit'])
     while check:
-        hit_stay = input("Hit or Stay? (Hit/Stay)")
-        if checkhs(hit_stay):
+        doubledown=input("Would you like to double down?: (Yes/No)")
+        if checkyn(doubledown):
             check=False
         else:
+            print("invalid input")
             check=True
-    if hit_stay == "Hit":
+    if doubledown=="Yes":
+        print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n" .format(firstseat, wager, player1balance - 2*int(wager)))
+        handsize1=2
         cardk7 = random.choice(deck)
         for k, v in deck.items():
             if cardk7 == k:
                 del deck[k]
-        totalround6 = (cardk5["value"]) + (cardk6["value"]) + (cardk7["value"])
-        if totalround6 > 21 and cardk5["card"] == "Ace":
-            totalround6 - 10
-        if totalround6 > 21 and cardk6["card"] == "Ace":
-            totalround6 - 10
-        if totalround6 > 21 and cardk7["card"] == "Ace":
-            totalround6 - 10
-        print("{} of {}, {} of {}, and {} of {}.\n"
-              "Total: {}".format(cardk5["card"], cardk5["suit"], cardk6["card"], cardk6["suit"],
-                                 cardk7["card"], cardk7["suit"], totalround6))
-        if totalround6 > 21:
-            print("! Good luck next time :(.")
-        if totalround6 < 21:
+        cardk8 = random.choice(deck)
+        for k, v in deck.items():
+            if cardk8 == k:
+                del deck[k]
+        hand.append(cardk1)
+        hand.append(cardk7)
+        hand1.append(cardk4)
+        hand1.append(cardk8)
+    else: 
+        hand.append(cardk1)
+        hand.append(cardk4)
+        'print("bwah311")'
+    ace=0
+    face=0
+    for card in hand1:
+        if card['card']=="Ace":
+            ace=1
+        if card['card']=="King" or "Queen" or "Jack" or "Ten":
+            face=1
+    if ace==face==1: 
+        player1blackjack1=1
+    ace=0
+    face=0
+    for card in hand:
+        if card['card']=="Ace":
+            ace=1
+        if card['card']=="King" or "Queen" or "Jack" or "Ten":
+            face=1
+    if ace==face==1: 
+        player1blackjack=1
+    ace=0
+    face=0
+    if player1blackjack==1:
+        print(firstseat+" got a Blackjack")
+    if player1blackjack1==1:
+        print(firstseat+"'s second hand got a Blackjack")
+    while (player1blackjack<1 and handsize1<2) or ((player1blackjack<1 or player1blackjack1<1) and handsize1>1):
+        'print("bwah111")'
+        hand_total=0
+        hand_total1=0
+        print(firstseat+" has...")
+        for card in hand:
+            print(" the " +card['card'] +" of "+ card['suit'])
+        aces=0
+        while hand_total<(21+aces*10):
+            'print(str(aces))'
+            print("--------------------------")
+            hand_total=0
+            aces=0
+            for card in hand:
+                if card['card']=="Ace":
+                    aces+=1
+                hand_total+=card['value']
+            if hand_total>21 and aces>0:
+                hand_total+=-10
+            if hand_total>21 and aces>1:
+                hand_total+=-10
+            if hand_total>21 and aces>2:
+                hand_total+=-10
+            if hand_total>21 and aces>3:
+                hand_total+=-10
+            print(firstseat+" your total is " +str(hand_total))
+            if hand_total==21:
+                break
+            if hand_total>21:
+                break
             check=True
             while check:
-                hit_stay = input("Hit or Stay? (Hit/Stay)")
+                hit_stay = input(firstseat+", Hit or Stay? (Hit/Stay)")
                 if checkhs(hit_stay):
                     check=False
                 else:
                     check=True
             if hit_stay == "Hit":
-                cardk8 = random.choice(deck)
+                cardk = random.choice(deck)
                 for k, v in deck.items():
-                    if cardk8 == k:
+                    if cardk == k:
                         del deck[k]
-                totalround7 = (cardk5["value"]) + (cardk6["value"]) + (cardk7["value"]) + (cardk8["value"])
-                if totalround7 > 21 and cardk5["card"] == "Ace":
-                    totalround7 - 10
-                if totalround7 > 21 and cardk6["card"] == "Ace":
-                    totalround7 - 10
-                if totalround7 > 21 and cardk7["card"] == "Ace":
-                    totalround7 - 10
-                if totalround7 > 21 and cardk8["card"] == "Ace":
-                    totalround7 - 10
-            print("{} of {}, {} of {}, {} of {} and {} of {}.\n"
-                  "Total: {}".format(cardk5["card"], cardk5["suit"], cardk6["card"], cardk6["suit"],
-                                     cardk7["card"], cardk7["suit"], cardk8["card"], cardk8["suit"],
-                                     totalround7))
-            if totalround7 > 21:
-                print("You have bust. Good luck next time :(.")
+                hand.append(cardk)
+                print(firstseat+" drew the " +cardk['card']+" of "+cardk['suit'])
             else:
-                print("-" * 40)
-                print("It is the dealer's turn now . Good luck everyone! ")
-                print("-" * 40)
+                break
+        if handsize1>1 and player1blackjack1==0:
+            print(firstseat+" you have...")
+            for card in hand1:
+                print(" the " +card['card'] +" of "+ card['suit'])
+            aces=0
+            while hand_total1<(21+aces*10):
+                hand_total1=0
+                aces=0
+                for card in hand1:
+                    if card['card']=="Ace":
+                        aces+=1
+                    hand_total1+=card['value']
+                if hand_total1>21 and aces>0:
+                    hand_total1+=-10
+                if hand_total1>21 and aces>1:
+                    hand_total1+=-10
+                if hand_total1>21 and aces>2:
+                    hand_total1+=-10
+                if hand_total1>21 and aces>3:
+                    hand_total1+=-10
+                print(firstseat+" Your total is " +str(hand_total1))
+                if hand_total1==21:
+                    break
+                if hand_total1>21:
+                    break
+                check=True
+                while check:
+                    hit_stay = input(firstseat+", Hit or Stay? (Hit/Stay)")
+                    if checkhs(hit_stay):
+                        check=False
+                    else:
+                        check=True
+                if hit_stay == "Hit":
+                    cardk = random.choice(deck)
+                    for k, v in deck.items():
+                        if cardk == k:
+                            del deck[k]
+                    hand1.append(cardk)
+                    print(firstseat+" drew the " +cardk['card']+" of "+cardk['suit'])
+                else:
+                    break
+        if handsize1 >1:
+            print(firstseat+ " hand is worth "+str(hand_total1))
+        break
+    if handsize1==1:
+        hand_total1=0
+    if player1blackjack==1:
+        hand_total=21
+    if player1blackjack1==1:
+        hand_total1=21
+    if hand_total>21:
+        print("You busted")
+        bust=1
+    if hand_total==21:
+        print("Nice job "+firstseat+" you ended with 21 the best you can get!")
+    elif hand_total<21:
+        print(firstseat +" You stayed on "+str(hand_total))
+    finalfirsthand=hand_total
+    if hand_total1>21 and handsize1 >1:
+        print("You busted"+ firstseat+"!")
+        bust1=1
+    if hand_total1==21 and handsize1>1:
+        print("Nice job "+firstseat+", you ended with 21 the best you can get!")
+    elif hand_total1<21 and handsize1>1:
+        print("You stayed on "+str(hand_total1))
+    finalfirsthand1=hand_total1
+    print("---------------------------------------------")
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    print(secondseat+"'s Turn")
+    doubledown="no"
+    print("The dealer is showing a "+cardk6['card'] +" of " +cardk6['suit'])
+    print(firstseat+" has...")
+    for card in hand:
+        print("the "+card['card']+" of "+card['suit'])
+    if handsize1>1:
+        for card in hand1:
+            print("the "+card['card']+" of "+card['suit'])
+    doubledown="no"
+    if cardk2['card']==cardk5['card']:
+        print(secondseat +"Your cards are the " +cardk2['card'] +" of " +cardk2['suit']+" and the " +cardk5['card'] +" of " +cardk5['suit'])
+        check=True
+    while check:
+        doubledown=input(secondseat+" Would you like to double down?: (Yes/No)")
+        if checkyn(doubledown):
+            check=False
         else:
-            print("It is the dealer's turn now. Good luck everyone! ")
-            print("-" * 40)
-    else:
-        print("It is the dealer's turn now. Good luck everyone! ")
-        print("-" * 40)
-
-    # DEALER DRAWS TWO CARDS
-    cardk9 = random.choice(deck)
-    for k, v in deck.items():
-        if cardk9 == k:
-            del deck[k]
-    cardk10 = random.choice(deck)
-    for k, v in deck.items():
-        if cardk10 == k:
-            del deck[k]
-    totalround8 = (cardk9["value"]) + (cardk10["value"])
-    # DOUBLE ACE CHECK
-    if totalround8 == 22:
-        totalround8 = 12
-    print("{} of {} and a {} of {}.\n"
-          "Total: {}".format(cardk9["card"], cardk9["suit"], cardk10["card"], cardk10["suit"], totalround8))
-
-    if totalround8 < 18:  # and another card if less than 16
-        cardk11 = random.choice(deck)
+            print("invalid input")
+            check=True
+    if doubledown=="Yes":
+        print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n" .format(secondseat, wager2, player2balance - 2*int(wager2)))
+        handsize2=2
+        cardk9 = random.choice(deck)
         for k, v in deck.items():
-            if cardk11 == k:
+            if cardk7 == k:
                 del deck[k]
-        totalround9 = (cardk9["value"]) + (cardk10["value"]) + (cardk11["value"])
-
-        if totalround9 > 21:
-            if cardk9["card"] == "Ace":
-                totalround9 - 10
-            if cardk10["card"] == "Ace":
-                totalround9 - 10
-            if cardk11["card"] == "Ace":
-                totalround9 - 10
-        print("{} of {}, {} of {}, and {} of {}.\n"
-              "Total: {}".format(cardk9["card"], cardk9["suit"], cardk10["card"], cardk10["suit"],
-                                 cardk11["card"], cardk11["suit"], totalround9))
-
-        if totalround9 < 16:
-            cardk12 = random.choice(deck)
-            for k, v in deck.items():
-                if cardk12 == k:
-                    del deck[k]
-            totalround10 = (cardk9["value"]) + (cardk10["value"]) + (cardk11["value"] + (cardk12["value"]))
-
-            if totalround10 > 21:
-                if cardk9["card"] == "Ace":
-                    totalround10 - 10
-                if cardk10["card"] == "Ace":
-                    totalround10 - 10
-                if cardk11["card"] == "Ace":
-                    totalround10 - 10
-                if cardk12["card"] == "Ace":
-                    totalround10 - 10
-            print("{} of {}, {} of {}, {} of {}, and {} of {}.\n"
-                  "Total: {}".format(cardk9["card"], cardk9["suit"], cardk10["card"], cardk10["suit"],
-                                     cardk11["card"], cardk11["suit"], cardk12["card"], cardk12["suit"],
-                                     totalround10))
-
-            if totalround10 > 21:  # BUST
-                print("Dealer has bust!")
-            if totalround10 < 21:
-                print("The dealer stays at {}.".format(totalround10))
-
-        if totalround9 > 21:  # BUST
-            print("Dealer has bust!")
-
-        else:
-            print("The dealer stays at {}.".format(totalround9))
-            print("-" * 40)
-
-    else:
-        print("The dealer stays at {}.".format(totalround8))
-        print("-" * 40)
-
-    # RESULTS OF ROUND
+        cardk10 = random.choice(deck)
+        for k, v in deck.items():
+            if cardk8 == k:
+                del deck[k]
+        hand2.append(cardk2)
+        hand2.append(cardk9)
+        hand22.append(cardk5)
+        hand22.append(cardk10)
+    else: 
+        hand2.append(cardk2)
+        hand2.append(cardk5)
+        'print("bwah311")'
+    ace=0
+    face=0
+    for card in hand2:
+        if card['card']=="Ace":
+            ace=1
+        if card['card']=="King" or "Queen" or "Jack" or "Ten":
+            face=1
+    if ace==face==1: 
+        player2blackjack=1
+    ace=0
+    face=0
+    for card in hand22:
+        if card['card']=="Ace":
+            ace=1
+        if card['card']=="King" or "Queen" or "Jack" or "Ten":
+            face=1
+    if ace==face==1: 
+        player2blackjack2=1
+    if player2blackjack==1:
+        print(secondseat+" got a Blackjack")
+    if player2blackjack2==1:
+        print(secondseat+"'s second hand got a Blackjack")
+    while (player2blackjack<1 and handsize2<2) or ((player2blackjack<1 or player2blackjack2<1) and handsize2>1):
+        'print("bwah111")'
+        hand_total2=0
+        hand_total22=0
+        print(secondseat+" has...")
+        for card in hand2:
+            print(" the " +card['card'] +" of "+ card['suit'])
+        aces=0
+        while hand_total2<21+aces*10:
+            print("-------------------------------")
+            hand_total2=0
+            aces=0
+            for card in hand2:
+                if card['card']=="Ace":
+                    aces+=1
+                hand_total2+=card['value']
+            if hand_total2>21 and aces>0:
+                hand_total2+=-10
+            if hand_total2>21 and aces>1:
+                hand_total2+=-10
+            if hand_total2>21 and aces>2:
+                hand_total2+=-10
+            if hand_total2>21 and aces>3:
+                hand_total2+=-10
+            print(secondseat+" your total is " +str(hand_total2))
+            if hand_total2==21:
+                break
+            if hand_total2>21:
+                break
+            check=True
+            while check:
+                hit_stay = input(secondseat+", Hit or Stay? (Hit/Stay)")
+                if checkhs(hit_stay):
+                    check=False
+                else:
+                    check=True
+            if hit_stay == "Hit":
+                cardk = random.choice(deck)
+                for k, v in deck.items():
+                    if cardk == k:
+                        del deck[k]
+                hand2.append(cardk)
+                print(secondseat+" You drew the " +cardk['card']+" of "+cardk['suit'])
+            else:
+                break
+        if handsize2>1:
+            print(secondseat+" You have...")
+            for card in hand22:
+                print(" the " +card['card'] +" of "+ card['suit'])
+            aces=0
+            while hand_total22<21+aces*10:
+                print("-------------------------------")
+                hand_total22=0
+                aces=0
+                for card in hand22:
+                    if card['card']=="Ace":
+                        aces+=1
+                    hand_total22+=card['value']
+                if hand_total22>21 and aces>0:
+                    hand_total22+=-10
+                if hand_total22>21 and aces>1:
+                    hand_total22+=-10
+                if hand_total22>21 and aces>2:
+                    hand_total22+=-10
+                if hand_total22>21 and aces>3:
+                    hand_total22+=-10
+                print(secondseat+" Your total is " +str(hand_total22))
+                if hand_total22==21:
+                    break
+                if hand_total22>21:
+                    break
+                check=True
+                while check:
+                    hit_stay = input(secondseat+", Hit or Stay? (Hit/Stay)")
+                    if checkhs(hit_stay):
+                        check=False
+                    else:
+                        check=True
+                if hit_stay == "Hit":
+                    cardk = random.choice(deck)
+                    for k, v in deck.items():
+                        if cardk == k:
+                            del deck[k]
+                    hand22.append(cardk)
+                    print(secondseat+" You drew the " +cardk['card']+" of "+cardk['suit'])
+                else:
+                    break
+        if handsize2 >1:
+            print(secondseat+" Your hand is worth "+str(hand_total1))
+        break
+    aces=0
+    hand_total2=0
+    for card in hand2:
+        if card['card']=="Ace":
+            aces+=1
+        hand_total2+=card['value']
+    if hand_total2>21 and aces>0:
+        hand_total2+=-10
+    if hand_total2>21 and aces>1:
+        hand_total2+=-10
+    if hand_total2>21 and aces>2:
+        hand_total2+=-10
+    if hand_total2>21 and aces>3:
+        hand_total2+=-10
+    aces=0
+    hand_total22=0
+    for card in hand22:
+        if card['card']=="Ace":
+            aces+=1
+        hand_total22+=card['value']
+    if hand_total22>21 and aces>0:
+        hand_total22+=-10
+    if hand_total22>21 and aces>1:
+        hand_total22+=-10
+    if hand_total22>21 and aces>2:
+        hand_total22+=-10
+    if hand_total22>21 and aces>3:
+        hand_total22+=-10
+    if player2blackjack==1:
+        hand_total2=21
+    if player2blackjack2==1:
+        hand_total22=21
+    if handsize2==1:
+        hand_total22=0
+    if hand_total2>21:
+        print(secondseat+" You busted!")
+        bust2=1
+    if hand_total2==21:
+        print("Nice job "+secondseat+" you ended with 21 the best you can get!")
+    elif hand_total2<21:
+        print(secondseat+" You stayed on "+str(hand_total2))
+    if hand_total22>21 and handsize1 >1:
+        print(secondseat+" You busted!")
+        bust22=1
+    if hand_total22==21 and handsize1>1:
+        print("Nice job "+secondseat+" you ended with 21 the best you can get!")
+    elif hand_total22<21 and handsize1>1:
+        print(secondseat+" You stayed on "+str(hand_total22))
+    finalhandtotal2=hand_total2
+    finalhandtotal22=hand_total22
+    "Dealers Turn"
+    ace=0
+    face=0
+    for card in dhand:
+        if card['card']=="Ace":
+            ace=1
+        if card['card']=="King" or "Queen" or "Jack" or "Ten":
+            face=1
+    if ace==1 and face==1: 
+        dealerblackjack=1
+    print("The Dealer has a " +cardk3['card']+" of "+cardk3['suit']+" and a " +cardk6['card']+" of "+cardk6['suit'])
+    dhandtotal=0
+    for card in dhand:
+        dhandtotal+=card['value']
+        
+    while dhandtotal<17:
+        dhandtotal=0
+        aces=0
+        for card in dhand:
+            if card['card']=="Ace":
+                aces+=1
+            dhandtotal+=card['value']
+        if dhandtotal>21 and aces>0:
+            dhandtotal+=-10
+        if dhandtotal>21 and aces>1:
+            dhandtotal+=-10
+        if dhandtotal>21 and aces>2:
+            dhandtotal+=-10
+        if dhandtotal>21 and aces>3:
+            dhandtotal+=-10
+        cardk = random.choice(deck)
+        for k, v in deck.items():
+            if cardk == k:
+                del deck[k]
+        dhand.append(cardk)
+        print("The Dealer drew a "+ cardk['card']+" of "+cardk['suit'])
+        for card in dhand:
+            dhandtotal+=card['value']
+    for card in dhand:
+        if card['card']=="Ace":
+            aces+=1
+    if dhandtotal>21 and aces>0:
+        dhandtotal+=-10
+    if dhandtotal>21 and aces>1:
+        dhandtotal+=-10
+    if dhandtotal>21 and aces>2:
+        dhandtotal+=-10
+    if dhandtotal>21 and aces>3:
+        dhandtotal+=-10
+    if dhandtotal>21:
+        print("The Dealer Busted!")
+        dbust=1
+        dhandtotal=0
+    print("The dealer ended on "+str(dhandtotal))
     print("-" * 40)
-    print("----------RESULTS----------")
-
-    # player1 results
-    if int(totalround2 or totalround3 or totalround4) >= 22:  # BUST
-        print("The dealer wins against {}! You lost money. :(.".format(firstseat))
-        player1balance -= wager
-    elif int(totalround8 or totalround9 or totalround10) >= int(totalround4 or totalround3 or totalround2):
-        print("The dealer wins against {}! You lost your bet.".format(firstseat))
-        player1balance -= wager
-    else:
-        print("{} won against the dealer, and won {} dollars!".format(firstseat, wager * 2))
-        player1balance += wager * 2
-
-    # player2 results
-    if int(totalround5 or totalround6 or totalround7) >= 22:
-        print("The dealer wins against {}!  Sorry, you lost your bet.".format(secondseat))
-        player2balance -= wager2
-    elif int(totalround8 or totalround9 or totalround10) >= int(totalround7 or totalround6 or totalround5):
-        print("The dealer wins against {}! Sorry, you lost your bet.".format(secondseat))
-        player2balance -= wager2
-    else:
-        print("{} won against the dealer, and won {} dollars!".format(secondseat, wager2 * 2))
-        player2balance += wager2 * 2
-
-    print("-" * 40)
+    "Results player 1"
+    if bust==0:
+        if player1blackjack==0 and dealerblackjack==0:
+            if finalfirsthand > dhandtotal:
+                player1balance+=int(wager)
+                print(str(finalfirsthand)+" vs "+ str(dhandtotal))
+                print("Congratulations "+firstseat+", you won "+wager+" dollars")
+            elif finalfirsthand < dhandtotal and dbust==0:
+                player1balance+=-int(wager)
+                print(str(finalfirsthand)+" vs "+ str(dhandtotal))
+                print("Unfortunately "+firstseat+", you lost "+wager+" dollars")
+            elif finalfirsthand==dhandtotal:
+                print(str(finalfirsthand)+" vs "+ str(dhandtotal))
+                print(firstseat+", you and the dealer tied, you lost no money")
+        if player1blackjack==1 and dealerblackjack==0:
+            player1balance+=2*int(wager)
+            print("Congratulations "+firstseat+", you won "+str(2*int(wager))+" dollars by getting a Blackjack")
+        if player1blackjack==0 and dealerblackjack==1:
+            player1balance+=-int(wager)
+            print("Unfortunately "+firstseat+", you lost "+wager+" dollars, because of the dealers Blackjack")
+    elif bust==1:
+        player1balance+=-int(wager)
+        print("Unfortunately "+firstseat+", you busted and lost "+wager+" dollars")
+    if bust1==0 and handsize1>1:
+        if player1blackjack1==0 and dealerblackjack==0 and handsize1>1:
+            if finalfirsthand1 > dhandtotal or dbust==1:
+                player1balance+=int(wager)
+                print(str(finalfirsthand1)+" vs "+ str(dhandtotal))
+                print("Congratulations "+firstseat+", you won "+wager+" dollars")
+            elif finalfirsthand1 < dhandtotal and dbust==0:
+                player1balance+=-int(wager)
+                print(str(finalfirsthand1)+" vs "+ str(dhandtotal))
+                print("Unfortunately "+firstseat+", you lost "+wager+" dollars")
+            elif finalfirsthand1==dhandtotal:
+                print(str(finalfirsthand1)+" vs "+ str(dhandtotal))
+                print(firstseat+", you and the dealer tied, you lost no money")
+        if player1blackjack1==1 and dealerblackjack==0 and handsize1>1:
+            player1balance+=2*int(wager)
+            print("Congratulations "+firstseat+", you won "+str(2*int(wager))+" dollars by getting a Blackjack")
+        if player1blackjack1==0 and dealerblackjack==1 and handsize1>1:
+            player1balance+=-int(wager)
+            print("Unfortunately "+firstseat+", you lost "+wager+" dollars, because of the dealers Blackjack")
+    elif bust1==1:
+        player1balance+=-int(wager)
+        print("Unfortunately "+firstseat+", you busted and lost "+wager+" dollars")
+    print("----------------------------------------------------")
+    "Results Player 2"
+    if bust2==0:
+        if player2blackjack==0 and dealerblackjack==0:
+            if finalhandtotal2 > dhandtotal:
+                player2balance+=int(wager2)
+                print(str(finalhandtotal2)+" vs "+ str(dhandtotal))
+                print("Congratulations "+secondseat+", you won "+wager2+" dollars")
+            elif finalhandtotal2 < dhandtotal and dbust==0:
+                player2balance+=-int(wager2)
+                print(str(finalhandtotal2)+" vs "+ str(dhandtotal))
+                print("Unfortunately "+secondseat+", you lost "+wager2+" dollars")
+            elif finalhandtotal2==dhandtotal:
+                print(str(finalhandtotal2)+" vs "+ str(dhandtotal))
+                print(secondseat+", you and the dealer tied, you lost no money")
+        if player2blackjack==1 and dealerblackjack==0:
+            player2balance+=2*int(wager2)
+            print("Congratulations "+secondseat+", you won "+str(2*int(wager2))+" dollars by getting a Blackjack")
+        if player2blackjack==0 and dealerblackjack==1:
+            player2balance+=-int(wager2)
+            print("Unfortunately "+secondseat+", you lost "+wager2+" dollars, because of the dealers Blackjack")
+    elif bust2==1: 
+        player2balance+=-int(wager2)
+        print("Unfortunately "+secondseat+", you busted and lost "+wager2+" dollars")
+    if bust22==0 and handsize2>1:
+        if player2blackjack2==0 and dealerblackjack==0 and handsize2>1:
+            if finalhandtotal22 > dhandtotal or dbust==1:
+                player2balance+=int(wager2)
+                print(str(finalhandtotal22)+" vs "+ str(dhandtotal))
+                print("Congratulations "+secondseat+", you won "+wager2+" dollars")
+            elif finalhandtotal22 < dhandtotal and dbust==0:
+                player2balance+=-int(wager2)
+                print(str(finalhandtotal22)+" vs "+ str(dhandtotal))
+                print("Unfortunately "+secondseat+", you lost "+wager2+" dollars")
+            else:
+                print(str(finalhandtotal22)+" vs "+ str(dhandtotal))
+                print(secondseat+", you and the dealer tied, you lost no money")
+        if player2blackjack2==1 and dealerblackjack==0 and handsize2>1:
+            player2balance+=2*int(wager2)
+            print("Congratulations "+secondseat+", you won "+str(2*int(wager2))+" dollars by getting a Blackjack")
+        if player2blackjack2==0 and dealerblackjack==1 and handsize2>1:
+            player2balance+=-int(wager2)
+            print("Unfortunately "+secondseat+", you lost "+wager2+" dollars, because of the dealers Blackjack")
+    elif bust22==1 and handsize2>1:
+        player2balance+=-int(wager2)
+        print("Unfortunately "+secondseat+", you busted and lost "+wager2+" dollars")
+    elif bust1==1:
+        player1balance+=-int(wager)
+        print("Unfortunately "+firstseat+", you busted and lost "+wager+" dollars")
     check=True
     while check:
         anothergame = input(
@@ -346,5 +650,9 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
             check=False
         else:
             check=True
-    if anothergame == "No":
+    if anothergame == "No" or anothergame=="no":
         print("Thanks for playing! Stay safe out there!")
+    if anothergame == "yes":
+        anothergame="Yes"
+if player1balance<=0 or player2balance<=0:
+    print("One of you lost, Thanks for playing! Stay safe out there!")
