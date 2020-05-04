@@ -39,7 +39,7 @@ while check:
               "Cards 2 - 10 counts as it's own number and the face cards jacks, queens, and kings counts as 10 each, and aces can count\n"
               " as either 1 or 11. A tie is a push, Getting a Blackjack a Ten or other facecard and an Ace earns you twice your bet\n"
               "The dealer must hit on any number below 17 and stick to all numbers greater than or equal to it\n"
-              "if you have two of the same card in your opening hand you may doubledown, that is create two hands with your starting hand"
+              "if you have two of the same card in your opening hand you may split, that is create two hands with your starting hand"
               "but to do this you must place double your wager, and each hand is now worth half of your total wager".format(player2))
         print("-" * 40)
         print("Let's begin blackjack!")
@@ -81,7 +81,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     bust2=0
     bust22=0
     dbust=0
-    doubledown=0
+    split=0
     check=True
     handtotal=0
     handtotal1=0
@@ -113,20 +113,20 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     cardk6 = random.choice(deck)
     deck.remove(cardk6)
     dhand.append(cardk6)
-    doubledown="no"
+    split="no"
     print("The dealer is showing a "+dhand[1]['card'] +" of " +dhand[1]['suit'])
     print(secondseat+" is showing a "+cardk2['card'] +" of " +cardk2['suit']+" and a "+cardk5['card'] +" of " +cardk5['suit'])
     if cardk1['card']==cardk4['card']:
         check=True
         print("Your cards are the " +cardk1['card'] +" of " +cardk1['suit']+" and the " +cardk4['card'] +" of " +cardk4['suit'])
     while check:
-        doubledown=input("Would you like to double down?: (Yes/No)")
-        if checkyn(doubledown):
+        split=input("Would you like to double down?: (Yes/No)")
+        if checkyn(split):
             check=False
         else:
             print("invalid input")
             check=True
-    if doubledown=="Yes":
+    if split=="Yes"or split=="yes":
         print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n" .format(firstseat, wager, player1balance - 2*int(wager)))
         handsize1=2
         cardk7 = random.choice(deck)
@@ -286,7 +286,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     
     
     print(secondseat+"'s Turn")
-    doubledown="no"
+    split="no"
     print("The dealer is showing a "+cardk6['card'] +" of " +cardk6['suit'])
     print(firstseat+" has...")
     for card in hand:
@@ -294,18 +294,18 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     if handsize1>1:
         for card in hand1:
             print("the "+card['card']+" of "+card['suit'])
-    doubledown="no"
+    split="no"
     if cardk2['card']==cardk5['card']:
         print(secondseat +"Your cards are the " +cardk2['card'] +" of " +cardk2['suit']+" and the " +cardk5['card'] +" of " +cardk5['suit'])
         check=True
     while check:
-        doubledown=input(secondseat+" Would you like to double down?: (Yes/No)")
-        if checkyn(doubledown):
+        split=input(secondseat+" Would you like to double down?: (Yes/No)")
+        if checkyn(split):
             check=False
         else:
             print("invalid input")
             check=True
-    if doubledown=="Yes":
+    if split=="Yes":
         print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n" .format(secondseat, wager2, player2balance - 2*int(wager2)))
         handsize2=2
         cardk9 = random.choice(deck)
