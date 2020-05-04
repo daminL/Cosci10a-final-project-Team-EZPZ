@@ -307,7 +307,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         else:
             print("invalid input")
             check=True
-    if split=="Yes" or "yes":
+    if split=="Yes" or split=="yes":
         print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n" .format(secondseat, wager2, player2balance - 2*int(wager2)))
         handsize2=2
         cardk9 = random.choice(deck)
