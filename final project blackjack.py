@@ -38,7 +38,7 @@ while check:
               "Your goal is to beat the dealer by getting as close to 21 as possible without going over it.  \n"
               "Cards 2 - 10 counts as it's own number and the face cards jacks, queens, and kings counts as 10 each, and aces can count\n"
               " as either 1 or 11. A tie is a push, Getting a Blackjack a Ten or other facecard and an Ace earns you twice your bet\n"
-              "The dealer must hit on any number below 17 and stick to all numbers greater than or equal to it\n"
+              "The dealer must hit on any number below 16 and stick to all numbers greater than or equal to it\n"
               "if you have two of the same card in your opening hand you may split, that is create two hands with your starting hand"
               "but to do this you must place double your wager, and each hand is now worth half of your total wager".format(player2))
         print("-" * 40)
@@ -148,7 +148,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     for card in hand1:
         if card['card']=="Ace":
             ace=1
-        if card['card']=="King" or "Queen" or "Jack" or "Ten":
+        if card['card']=="King" or card['card']=="Queen" or card['card']=="Jack" or card['card']=="Ten":
             face=1
     if ace==face==1: 
         player1blackjack1=1
@@ -157,7 +157,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     for card in hand:
         if card['card']=="Ace":
             ace=1
-        if card['card']=="King" or "Queen" or "Jack" or "Ten":
+        if card['card']=="King" or card['card']=="Queen" or card['card']=="Jack" or card['card']=="Ten":
             face=1
     if ace==face==1: 
         player1blackjack=1
@@ -204,7 +204,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                     check=False
                 else:
                     check=True
-            if hit_stay == "Hit":
+            if hit_stay == "Hit" or hit_stay=="hit":
                 cardk = random.choice(deck)
                 deck.remove(cardk)
                 hand.append(cardk)
@@ -327,7 +327,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     for card in hand2:
         if card['card']=="Ace":
             ace=1
-        if card['card']=="King" or "Queen" or "Jack" or "Ten":
+        if card['card']=="King" or card['card']=="Queen" or card['card']=="Jack" or card['card']=="Ten":
             face=1
     if ace==face==1: 
         player2blackjack=1
@@ -380,7 +380,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                     check=False
                 else:
                     check=True
-            if hit_stay == "Hit":
+            if hit_stay == "Hit" or hit_stay=="hit":
                 cardk = random.choice(deck)
                 deck.remove(cardk)
                 hand2.append(cardk)
@@ -486,7 +486,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     for card in dhand:
         if card['card']=="Ace":
             ace=1
-        if card['card']=="King" or "Queen" or "Jack" or "Ten":
+        if card['card']=="King" or card['card']=="Queen" or card['card']=="Jack" or card['card']=="Ten":
             face=1
     if ace==1 and face==1: 
         dealerblackjack=1
@@ -495,7 +495,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     for card in dhand:
         dhandtotal+=card['value']
         
-    while dhandtotal<17:
+    while dhandtotal<17+(aces*10):
         dhandtotal=0
         aces=0
         for card in dhand:
@@ -510,6 +510,8 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
             dhandtotal+=-10
         if dhandtotal>21 and aces>3:
             dhandtotal+=-10
+        if dhandtotal>=17:
+            break
         cardk = random.choice(deck)
         deck.remove(cardk)
         dhand.append(cardk)
