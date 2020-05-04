@@ -13,6 +13,11 @@ def check510(integer):
     if integer=="5" or integer=="10":
         return False
     return True
+def check1stseat(firstseat, player, player2):
+    if firstseat==player or firstseat==player2:
+        return True
+    else:
+        return False
 player1balance = 20
 player2balance = 20
 anothergame = "Yes"
@@ -34,7 +39,8 @@ while check:
               "Cards 2 - 10 counts as it's own number and the face cards jacks, queens, and kings counts as 10 each, and aces can count\n"
               " as either 1 or 11. A tie is a push, Getting a Blackjack a Ten or other facecard and an Ace earns you twice your bet\n"
               "The dealer must hit on any number below 17 and stick to all numbers greater than or equal to it\n"
-              "if you have two of the same card in your opening hand you may doubledown, that is create two hands with your starting hand".format(player2))
+              "if you have two of the same card in your opening hand you may doubledown, that is create two hands with your starting hand"
+              "but to do this you must place double your wager, and each hand is now worth half of your total wager".format(player2))
         print("-" * 40)
         print("Let's begin blackjack!")
         print("-" * 40)
@@ -43,6 +49,13 @@ while check:
         print("Let's begin blackjack!")
         print("-" * 40)
     firstseat = input("Who's up first? {} or {}? ".format(player1, player2))
+    check=True
+    while check:
+        if check1stseat(firstseat, player1, player2):
+            check=False
+        else:
+            print("invalid entry")
+            check=True
     if firstseat == player1:
         secondseat = player2
     else:
