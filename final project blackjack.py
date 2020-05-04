@@ -5,7 +5,7 @@ def checkyn(string):
     else:
         return False
 def checkhs(string):
-    if string=='Hit' or string=='Stay':
+    if string=='Hit' or string=='Stay' or string=="hit" or string=="stay":
         return True
     else:
         return False
@@ -48,9 +48,9 @@ while check:
         print("-"* 40)
         print("Let's begin blackjack!")
         print("-" * 40)
-    firstseat = input("Who's up first? {} or {}? ".format(player1, player2))
     check=True
     while check:
+        firstseat = input("Who's up first? {} or {}? ".format(player1, player2))
         if check1stseat(firstseat, player1, player2):
             check=False
         else:
@@ -82,17 +82,19 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     bust22=0
     dbust=0
     split=0
-    check=True
     handtotal=0
     handtotal1=0
     handtotal2=0
     handtotal22=0
     dhandtotal=0
+    check=True
     while check:
         wager =input(firstseat+" Would you like to bet 5 or 10 dollars? Your balance is {} dollars. (5/10): ".format(player1balance))
+        print("---------------------------------------------------------")
         wager2 = input(secondseat+" Would you like to bet 5 or 10 dollars? Your balance is {} dollars. (5/10): ".format(player2balance))
         if check510(wager) or check510(wager2):
             check=True
+            print("One of you entered an invalid wager please bet 5 or 10 dollars")
         else:
             check=False
     print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n"
@@ -120,7 +122,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         check=True
         print("Your cards are the " +cardk1['card'] +" of " +cardk1['suit']+" and the " +cardk4['card'] +" of " +cardk4['suit'])
     while check:
-        split=input("Would you like to double down?: (Yes/No)")
+        split=input("Would you like to split?: (Yes/No): ")
         if checkyn(split):
             check=False
         else:
@@ -197,7 +199,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                 break
             check=True
             while check:
-                hit_stay = input(firstseat+", Hit or Stay? (Hit/Stay)")
+                hit_stay = input(firstseat+", Hit or Stay? (Hit/Stay): ")
                 if checkhs(hit_stay):
                     check=False
                 else:
@@ -236,12 +238,12 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                     break
                 check=True
                 while check:
-                    hit_stay = input(firstseat+", Hit or Stay? (Hit/Stay)")
+                    hit_stay = input(firstseat+", Hit or Stay? (Hit/Stay): ")
                     if checkhs(hit_stay):
                         check=False
                     else:
                         check=True
-                if hit_stay == "Hit":
+                if hit_stay == "Hit" or hit_stay == "hit":
                     cardk = random.choice(deck)
                     deck.remove(cardk)
                     hand1.append(cardk)
@@ -299,13 +301,13 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         print(secondseat +"Your cards are the " +cardk2['card'] +" of " +cardk2['suit']+" and the " +cardk5['card'] +" of " +cardk5['suit'])
         check=True
     while check:
-        split=input(secondseat+" Would you like to double down?: (Yes/No)")
+        split=input(secondseat+" Would you like to split?: (Yes/No): ")
         if checkyn(split):
             check=False
         else:
             print("invalid input")
             check=True
-    if split=="Yes":
+    if split=="Yes" or "yes":
         print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n" .format(secondseat, wager2, player2balance - 2*int(wager2)))
         handsize2=2
         cardk9 = random.choice(deck)
@@ -373,7 +375,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                 break
             check=True
             while check:
-                hit_stay = input(secondseat+", Hit or Stay? (Hit/Stay)")
+                hit_stay = input(secondseat+", Hit or Stay? (Hit/Stay): ")
                 if checkhs(hit_stay):
                     check=False
                 else:
@@ -413,12 +415,12 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                     break
                 check=True
                 while check:
-                    hit_stay = input(secondseat+", Hit or Stay? (Hit/Stay)")
+                    hit_stay = input(secondseat+", Hit or Stay? (Hit/Stay): ")
                     if checkhs(hit_stay):
                         check=False
                     else:
                         check=True
-                if hit_stay == "Hit":
+                if hit_stay == "Hit" or hit_stay=="hit":
                     cardk = random.choice(deck)
                     deck.remove(cardk)
                     hand22.append(cardk)
@@ -509,9 +511,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         if dhandtotal>21 and aces>3:
             dhandtotal+=-10
         cardk = random.choice(deck)
-        for k, v in deck.items():
-            if cardk == k:
-                del deck[k]
+        deck.remove(cardk)
         dhand.append(cardk)
         print("The Dealer drew a "+ cardk['card']+" of "+cardk['suit'])
         for card in dhand:
