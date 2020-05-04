@@ -33,7 +33,8 @@ while check:
               "Your goal is to beat the dealer by getting as close to 21 as possible without going over it.  \n"
               "Cards 2 - 10 counts as it's own number and the face cards jacks, queens, and kings counts as 10 each, and aces can count\n"
               " as either 1 or 11. A tie is a push, Getting a Blackjack a Ten or other facecard and an Ace earns you twice your bet\n"
-              "The dealer must hit on any number below 17 and stick to all numbers greater than or equal to it".format(player2))
+              "The dealer must hit on any number below 17 and stick to all numbers greater than or equal to it\n"
+              "if you have two of the same card in your opening hand you may doubledown, that is create two hands with your starting hand".format(player2))
         print("-" * 40)
         print("Let's begin blackjack!")
         print("-" * 40)
@@ -47,7 +48,7 @@ while check:
     else:
         secondseat = player1
 while anothergame == "Yes" and (player1balance and player2balance > 0):
-    deck = {1: {"card": "Ace","suit": "Hearts","value": 11}, 2: {"card": "Two","suit": "Hearts","value": 2},3: {"card": "Three","suit": "Hearts","value": 3},4: {"card": "Four","suit": "Hearts","value": 4},5: {"card": "Five","suit": "Hearts","value": 5},6: {"card": "Six","suit": "Hearts","value": 6},7: {"card": "Seven","suit": "Hearts","value": 7},8: {"card": "Eight","suit": "Hearts","value": 8},9: {"card": "Nine","suit": "Hearts","value": 9},10: {"card": "Ten","suit": "Hearts","value": 10},11: {"card": "Jack","suit": "Hearts","value": 10},12: {"card": "Queen","suit": "Hearts","value": 10},13: {"card": "King","suit": "Hearts","value": 10},14: {"card": "Ace","suit": "Diamonds", "value": 11},            15: {"card": "Two",                 "suit": "Diamonds",                 "value": 2},            16: {"card": "Three",                 "suit": "Diamonds",                 "value": 3},            17: {"card": "Four",                 "suit": "Diamonds",                 "value": 4},            18: {"card": "Five",                 "suit": "Diamonds",                 "value": 5},            19: {"card": "Six",                 "suit": "Diamonds",                 "value": 6},            20: {"card": "Seven",                 "suit": "Diamonds",                 "value": 7},            21: {"card": "Eight",                 "suit": "Diamonds",                 "value": 8},            22: {"card": "Nine",                 "suit": "Diamonds",                 "value": 9},            23: {"card": "Ten",                 "suit": "Diamonds",                 "value": 10},            24: {"card": "Jack",                 "suit": "Diamonds",                 "value": 10},            25: {"card": "Queen",                 "suit": "Diamonds",                 "value": 10},            26: {"card": "King",                 "suit": "Diamonds",                 "value": 10},            27: {"card": "Ace",                 "suit": "Spades",                 "value": 11},            28: {"card": "Two",                 "suit": "Spades",                 "value": 2},            29: {"card": "Three",                 "suit": "Spades",                 "value": 3},            30: {"card": "Four",                 "suit": "Spades",                 "value": 4},            31: {"card": "Five",                 "suit": "Spades",                 "value": 5},            32: {"card": "Six",                 "suit": "Spades",                 "value": 6},            33: {"card": "Seven",                 "suit": "Spades",                 "value": 7},            34: {"card": "Eight",                 "suit": "Spades",                 "value": 8},            35: {"card": "Nine",                 "suit": "Spades",                 "value": 9},            36: {"card": "Ten",                 "suit": "Spades",                 "value": 10},            37: {"card": "Jack",                 "suit": "Spades",                 "value": 10},            38: {"card": "Queen",                 "suit": "Spades",                 "value": 10},            39: {"card": "King",                 "suit": "Spades",                 "value": 10},            40: {"card": "Ace",                 "suit": "Clubs",                 "value": 11},            41: {"card": "Two",                 "suit": "Clubs",                 "value": 2},            42: {"card": "Three",                 "suit": "Clubs",                 "value": 3},            43: {"card": "Four",                 "suit": "Clubs",                 "value": 4},            44: {"card": "Five",                 "suit": "Clubs",                 "value": 5},            45: {"card": "Six",                 "suit": "Clubs",                 "value": 6},            46: {"card": "Seven",                 "suit": "Clubs",                 "value": 7},            47: {"card": "Eight",                 "suit": "Clubs",                 "value": 8},            48: {"card": "Nine",                 "suit": "Clubs",                 "value": 9},            49: {"card": "Ten",                 "suit": "Clubs",                 "value": 10},            50: {"card": "Jack",                 "suit": "Clubs",                 "value": 10},            51: {"card": "Queen",                 "suit": "Clubs",                 "value": 10},            0: {"card": "King",                 "suit": "Clubs",                 "value": 10}}
+    deck = [ {"card": "Ace","suit": "Hearts","value": 11},  {"card": "Two","suit": "Hearts","value": 2}, {"card": "Three","suit": "Hearts","value": 3}, {"card": "Four","suit": "Hearts","value": 4}, {"card": "Five","suit": "Hearts","value": 5}, {"card": "Six","suit": "Hearts","value": 6}, {"card": "Seven","suit": "Hearts","value": 7}, {"card": "Eight","suit": "Hearts","value": 8}, {"card": "Nine","suit": "Hearts","value": 9}, {"card": "Ten","suit": "Hearts","value": 10}, {"card": "Jack","suit": "Hearts","value": 10}, {"card": "Queen","suit": "Hearts","value": 10}, {"card": "King","suit": "Hearts","value": 10}, {"card": "Ace","suit": "Diamonds", "value": 11}, {"card": "Two",                 "suit": "Diamonds",                 "value": 2},   {"card": "Three",                 "suit": "Diamonds",                 "value": 3}, {"card": "Four",                 "suit": "Diamonds",                 "value": 4},  {"card": "Five",                 "suit": "Diamonds",                 "value": 5},   {"card": "Six",                 "suit": "Diamonds",                 "value": 6},    {"card": "Seven",                 "suit": "Diamonds",                 "value": 7},    {"card": "Eight",                 "suit": "Diamonds",                 "value": 8},  {"card": "Nine",                 "suit": "Diamonds",                 "value": 9},  {"card": "Ten",                 "suit": "Diamonds",                 "value": 10},   {"card": "Jack",                 "suit": "Diamonds",                 "value": 10},          {"card": "Queen",                 "suit": "Diamonds",                 "value": 10},          {"card": "King",                 "suit": "Diamonds",                 "value": 10},      {"card": "Ace",                 "suit": "Spades",                 "value": 11},         {"card": "Two",                 "suit": "Spades",                 "value": 2},            {"card": "Three",                 "suit": "Spades",                 "value": 3},        {"card": "Four",                 "suit": "Spades",                 "value": 4},      {"card": "Five",                 "suit": "Spades",                 "value": 5},    {"card": "Six",                 "suit": "Spades",                 "value": 6},  {"card": "Seven",                 "suit": "Spades",                 "value": 7},   {"card": "Eight",                 "suit": "Spades",                 "value": 8},    {"card": "Nine",                 "suit": "Spades",                 "value": 9},  {"card": "Ten",                 "suit": "Spades",                 "value": 10},    {"card": "Jack",                 "suit": "Spades",                 "value": 10},    {"card": "Queen",                 "suit": "Spades",                 "value": 10}, {"card": "King",                 "suit": "Spades",                 "value": 10},  {"card": "Ace",                 "suit": "Clubs",                 "value": 11},     {"card": "Two",                 "suit": "Clubs",                 "value": 2},       {"card": "Three",                 "suit": "Clubs",                 "value": 3},       {"card": "Four",                 "suit": "Clubs",                 "value": 4},       {"card": "Five",                 "suit": "Clubs",                 "value": 5},      {"card": "Six",                 "suit": "Clubs",                 "value": 6},    {"card": "Seven",                 "suit": "Clubs",                 "value": 7},   {"card": "Eight",                 "suit": "Clubs",                 "value": 8},     {"card": "Nine",                 "suit": "Clubs",                 "value": 9},    {"card": "Ten",                 "suit": "Clubs",                 "value": 10},       {"card": "Jack",                 "suit": "Clubs",                 "value": 10},    {"card": "Queen",                 "suit": "Clubs",                 "value": 10},  {"card": "King",                 "suit": "Clubs",                 "value": 10}]
     "wager"
     stay=0
     hand=[]
@@ -86,30 +87,18 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
     print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n"
           .format(secondseat, wager2, player2balance - int(wager2)))
     cardk1 = random.choice(deck)
-    for k, v in deck.items():
-        if cardk1 == k:
-            del deck[k]
+    deck.remove(cardk1)
     cardk2 = random.choice(deck)
-    for k, v in deck.items():
-        if cardk2 == k:
-            del deck[k]
+    deck.remove(cardk2)
     cardk3 = random.choice(deck)
-    for k, v in deck.items():
-        if cardk3 == k:
-            del deck[k]
+    deck.remove(cardk3)
     dhand.append(cardk3)
     cardk4 = random.choice(deck)
-    for k, v in deck.items():
-        if cardk4 == k:
-            del deck[k]
+    deck.remove(cardk4)
     cardk5 = random.choice(deck)
-    for k, v in deck.items():
-        if cardk5 == k:
-            del deck[k]
+    deck.remove(cardk5)
     cardk6 = random.choice(deck)
-    for k, v in deck.items():
-        if cardk6 == k:
-            del deck[k]
+    deck.remove(cardk6)
     dhand.append(cardk6)
     doubledown="no"
     print("The dealer is showing a "+dhand[1]['card'] +" of " +dhand[1]['suit'])
@@ -128,13 +117,9 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n" .format(firstseat, wager, player1balance - 2*int(wager)))
         handsize1=2
         cardk7 = random.choice(deck)
-        for k, v in deck.items():
-            if cardk7 == k:
-                del deck[k]
+        deck.remove(cardk7)
         cardk8 = random.choice(deck)
-        for k, v in deck.items():
-            if cardk8 == k:
-                del deck[k]
+        deck.remove(cardk8)
         hand.append(cardk1)
         hand.append(cardk7)
         hand1.append(cardk4)
@@ -206,9 +191,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                     check=True
             if hit_stay == "Hit":
                 cardk = random.choice(deck)
-                for k, v in deck.items():
-                    if cardk == k:
-                        del deck[k]
+                deck.remove(cardk)
                 hand.append(cardk)
                 print(firstseat+" drew the " +cardk['card']+" of "+cardk['suit'])
             else:
@@ -247,9 +230,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                         check=True
                 if hit_stay == "Hit":
                     cardk = random.choice(deck)
-                    for k, v in deck.items():
-                        if cardk == k:
-                            del deck[k]
+                    deck.remove(cardk)
                     hand1.append(cardk)
                     print(firstseat+" drew the " +cardk['card']+" of "+cardk['suit'])
                 else:
@@ -315,13 +296,9 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
         print("Good luck, {}. You place {} dollars on the table. You have a {} dollar remaining.\n" .format(secondseat, wager2, player2balance - 2*int(wager2)))
         handsize2=2
         cardk9 = random.choice(deck)
-        for k, v in deck.items():
-            if cardk7 == k:
-                del deck[k]
+        deck.remove(cardk9)
         cardk10 = random.choice(deck)
-        for k, v in deck.items():
-            if cardk8 == k:
-                del deck[k]
+        deck.remove(cardk10)
         hand2.append(cardk2)
         hand2.append(cardk9)
         hand22.append(cardk5)
@@ -390,9 +367,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                     check=True
             if hit_stay == "Hit":
                 cardk = random.choice(deck)
-                for k, v in deck.items():
-                    if cardk == k:
-                        del deck[k]
+                deck.remove(cardk)
                 hand2.append(cardk)
                 print(secondseat+" You drew the " +cardk['card']+" of "+cardk['suit'])
             else:
@@ -432,9 +407,7 @@ while anothergame == "Yes" and (player1balance and player2balance > 0):
                         check=True
                 if hit_stay == "Hit":
                     cardk = random.choice(deck)
-                    for k, v in deck.items():
-                        if cardk == k:
-                            del deck[k]
+                    deck.remove(cardk)
                     hand22.append(cardk)
                     print(secondseat+" You drew the " +cardk['card']+" of "+cardk['suit'])
                 else:
